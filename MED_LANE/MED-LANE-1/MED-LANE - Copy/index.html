@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MED-LANE - Drug Repurposing Research</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Light Mode Toggle Button (Bottom Left) -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="theme-icon">☀️</span>
+    </button>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="title">MED-LANE</h1>
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="search for the drug"
+            >
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- DASHBOARD VIEW (Initially visible) -->
+            <div id="dashboardView" class="dashboard-view">
+                
+                <!-- Left Sidebar: Previously Researched Drugs -->
+                <aside class="sidebar">
+                    <h2 class="sidebar-title">previously researched drugs</h2>
+                    <ul id="drugHistory" class="drug-history-list">
+                        <!-- Drug history will be dynamically added here by JavaScript -->
+                    </ul>
+                </aside>
+
+                <!-- Right Content: Current Drug Cards -->
+                <section class="content-area">
+                    <div id="drugCardsContainer" class="drug-cards-container">
+                        <!-- Drug cards will be dynamically added here -->
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- RESEARCH VIEW (Hidden initially) -->
+            <div id="researchView" class="research-view" style="display: none;">
+                
+                <!-- Processing Spinner -->
+                <div id="loadingSpinner" class="spinner-container" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing drug data...</p>
+                </div>
+
+                <!-- Research Results Container -->
+                <div id="researchResults" class="research-results" style="display: none;">
+                    
+                    <!-- Time Required Badge -->
+                    <div class="time-badge">
+                        <span id="researchTime">TIME REQUIRED TO RESEARCH: 5 HRS</span>
+                    </div>
+
+                    <!-- Drug Information Display -->
+                    <div class="drug-info-section">
+                        <p><strong>DRUG NAME:</strong> <span id="drugName">DRUG X</span></p>
+                        <p><strong>DRUG MANUFACTURER:</strong> <span id="drugManufacturer">APOLLO PHARMA (JUST A REF ... NONE IF NOT PATENTED)</span></p>
+                        <p><strong>DRUG EFFECTS:</strong> <span id="drugEffects">...........</span></p>
+                        <p><strong>DRUG SIDE EFFECTS:</strong> <span id="drugSideEffects">...........</span></p>
+                        <p><strong>DRUG SAFETY AS PER PREVIOUS RECORDS:</strong> <span id="drugSafety">.............</span></p>
+                    </div>
+
+                    <!-- Repurposing Question -->
+                    <div class="repurpose-question">
+                        <p>WHICH TYPE OF DRUG CHANGE YOU WANT TO PERFORM TO REPURPOSE ITS USAGE AND MINIMIZE ITS SIDE EFFECTS:</p>
+                        <textarea 
+                            id="userModification" 
+                            class="modification-input"
+                            placeholder="Describe the modifications you want to explore..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Decision Question -->
+                    <div class="decision-section">
+                        <p class="decision-question">DO YOU WANT TO PROCEED WITH THIS DRUG?</p>
+                        <div class="button-group">
+                            <button id="yesButton" class="action-btn yes-btn">YES</button>
+                            <button id="noButton" class="action-btn no-btn">NO</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- AGENT PROCESSING VIEW (New Screen) -->
+            <div id="agentProcessingView" class="agent-processing-view" style="display: none;">
+                
+                <h2 class="processing-title">Multi-Agent Analysis In Progress</h2>
+                
+                <!-- Agent Cards Container -->
+                <div class="agents-container">
+                    
+                    <!-- Literature Agent -->
+                    <div class="agent-card" id="literatureAgent">
+                        <div class="agent-header">
+                            <h3>literature agent</h3>
+                            <div class="agent-status" id="litStatus">⏳ Pending</div>
+                        </div>
+                        <ul class="agent-tasks" id="litTasks">
+                            <li data-task="0">
+                                <span>"Conducting structured review of scientific literature..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="1">
+                                <span>"Evaluating pharmacological mechanisms..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="2">
+                                <span>"Identifying evidence from clinical trials and studies..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="3">
+                                <span>"Extracting efficacy- and safety-related observations..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="4">
+                                <span>"Assessing quality and reliability of sources..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="5">
+                                <span>"Cross-checking published outcomes against known data..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="6">
+                                <span>"Synthesizing clinical insights..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="7">
+                                <span>"Summarizing evidence-based findings..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="8">
+                                <span>"Preparing structured literature analysis..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Patent Agent -->
+                    <div class="agent-card" id="patentAgent">
+                        <div class="agent-header">
+                            <h3>patent agent</h3>
+                            <div class="agent-status" id="patStatus">⏳ Pending</div>
+                        </div>
+                        <ul class="agent-tasks" id="patTasks">
+                            <li data-task="0">
+                                <span>"Conducting prior-art assessment..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="1">
+                                <span>"Reviewing patent claims and scope..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="2">
+                                <span>"Evaluating potential infringement risks..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="3">
+                                <span>"Assessing novelty and freedom-to-operate..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="4">
+                                <span>"Compiling patent landscape overview..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="5">
+                                <span>"Preparing patentability insights..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Safety Agent -->
+                    <div class="agent-card" id="safetyAgent">
+                        <div class="agent-header">
+                            <h3>safety agent</h3>
+                            <div class="agent-status" id="safeStatus">⏳ Pending</div>
+                        </div>
+                        <ul class="agent-tasks" id="safeTasks">
+                            <li data-task="0">
+                                <span>"Retrieving safety information..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="1">
+                                <span>"Checking side effects from medical literature..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="2">
+                                <span>"Analyzing toxicity and risk factors..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="3">
+                                <span>"Reviewing contraindications..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="4">
+                                <span>"Scanning drug interactions..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="5">
+                                <span>"Preparing safety summary..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                            <li data-task="6">
+                                <span>"Finalizing safety report..."</span>
+                                <span class="task-status">⏳</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Progress Summary -->
+                <div class="progress-summary">
+                    <p id="progressText">Initializing agents...</p>
+                    <button id="backToDashboard" class="back-btn" style="display: none;">Return to Dashboard</button>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>

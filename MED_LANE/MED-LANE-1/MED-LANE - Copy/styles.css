@@ -1,0 +1,728 @@
+/* ========================================
+   GOOGLE FONTS & GLOBAL STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ========================================
+   LIGHT MODE STYLES
+   ======================================== */
+
+body.light-mode {
+    background-color: #f5f0e8; /* Cream background */
+    color: #1a1a1a;
+}
+
+body.light-mode .container {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+}
+
+body.light-mode .header {
+    background-color: #e8f5e9; /* Light green */
+    border-bottom: 2px solid #1a1a1a;
+}
+
+body.light-mode .title {
+    color: #1a1a1a;
+}
+
+body.light-mode .search-input {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+body.light-mode .search-input::placeholder {
+    color: #666;
+}
+
+body.light-mode .sidebar {
+    background-color: #f1f8f1;
+    border-right: 2px solid #1a1a1a;
+}
+
+body.light-mode .sidebar-title {
+    color: #333;
+}
+
+body.light-mode .drug-history-list li {
+    border-bottom: 1px solid #ccc;
+    color: #333;
+}
+
+body.light-mode .drug-history-list li:hover {
+    background-color: #e8f5e9;
+}
+
+body.light-mode .drug-card {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+}
+
+body.light-mode .drug-card h3 {
+    color: #1a1a1a;
+}
+
+body.light-mode .drug-card p {
+    color: #333;
+}
+
+body.light-mode .repurpose-btn {
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+body.light-mode .repurpose-btn:hover {
+    background-color: #e8f5e9;
+}
+
+body.light-mode .research-view {
+    background-color: #f5f0e8;
+}
+
+body.light-mode .time-badge {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+}
+
+body.light-mode .time-badge span {
+    color: #333;
+}
+
+body.light-mode .drug-info-section {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+}
+
+body.light-mode .drug-info-section p {
+    color: #333;
+}
+
+body.light-mode .drug-info-section strong {
+    color: #1a1a1a;
+}
+
+body.light-mode .repurpose-question {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+}
+
+body.light-mode .repurpose-question p {
+    color: #333;
+}
+
+body.light-mode .modification-input {
+    background-color: #f9f9f9;
+    border: 2px solid #1a1a1a;
+    color: #1a1a1a;
+}
+
+body.light-mode .decision-question {
+    color: #333;
+}
+
+body.light-mode .yes-btn {
+    border: 2px solid #2e7d32;
+}
+
+body.light-mode .no-btn {
+    border: 2px solid #c62828;
+}
+
+body.light-mode .spinner {
+    border-color: #ddd;
+    border-top-color: #666;
+}
+
+body.light-mode .agent-card {
+    background-color: #ffffff;
+    border: 2px solid #1a1a1a;
+}
+
+body.light-mode .agent-header h3 {
+    color: #1a1a1a;
+}
+
+body.light-mode .agent-tasks li {
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+body.light-mode .processing-title {
+    color: #1a1a1a;
+}
+
+body.light-mode .progress-summary p {
+    color: #333;
+}
+
+/* ========================================
+   THEME TOGGLE BUTTON
+   ======================================== */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    border: 2px solid #444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: #2a2a2a;
+}
+
+body.light-mode .theme-toggle {
+    background-color: #e8f5e9;
+    border: 2px solid #1a1a1a;
+}
+
+body.light-mode .theme-toggle:hover {
+    background-color: #c8e6c9;
+}
+
+/* ========================================
+   MAIN CONTAINER
+   ======================================== */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #333;
+    background-color: #111;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 6px;
+    color: #ffffff;
+}
+
+.search-input {
+    width: 300px;
+    padding: 12px 20px;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #777;
+}
+
+.search-input:focus {
+    border-color: #666;
+    background-color: #222;
+}
+
+/* ========================================
+   MAIN CONTENT AREA
+   ======================================== */
+
+.main-content {
+    min-height: 600px;
+    position: relative;
+}
+
+/* ========================================
+   DASHBOARD VIEW
+   ======================================== */
+
+.dashboard-view {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #0d0d0d;
+    border-right: 1px solid #333;
+    padding: 30px 20px;
+}
+
+.sidebar-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #aaa;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+}
+
+.drug-history-list {
+    list-style: none;
+}
+
+.drug-history-list li {
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #222;
+    color: #ccc;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.drug-history-list li:hover {
+    background-color: #1a1a1a;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.content-area {
+    flex: 1;
+    padding: 30px 40px;
+    overflow-y: auto;
+}
+
+.drug-cards-container {
+    display: grid;
+    gap: 20px;
+}
+
+.drug-card {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 25px;
+    position: relative;
+}
+
+.drug-card h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.drug-card p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.repurpose-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+
+}
+
+.repurpose-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ========================================
+   RESEARCH VIEW
+   ======================================== */
+
+.research-view {
+    padding: 40px;
+    background-color: #0a0a0a;
+}
+
+.spinner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #222;
+    border-top-color: #666;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.spinner-container p {
+    margin-top: 20px;
+    color: #888;
+    font-size: 1rem;
+}
+
+.research-results {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.time-badge {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 12px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.time-badge span {
+    color: #aaa;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.drug-info-section {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    line-height: 2;
+}
+
+.drug-info-section p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.drug-info-section strong {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.drug-info-section span {
+    color: #aaa;
+}
+
+.repurpose-question {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.repurpose-question p {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.modification-input {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+    outline: none;
+}
+
+.modification-input:focus {
+    border-color: #555;
+}
+
+.decision-section {
+    text-align: center;
+    padding: 30px;
+}
+
+.decision-question {
+    color: #ccc;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+.button-group {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 12px 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid #555;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.yes-btn {
+    background-color: transparent;
+    color: #4a9d5f;
+    border-color: #4a9d5f;
+}
+
+.yes-btn:hover {
+    background-color: #4a9d5f;
+    color: #000;
+}
+
+.no-btn {
+    background-color: transparent;
+    color: #c74a4a;
+    border-color: #c74a4a;
+}
+
+.no-btn:hover {
+    background-color: #c74a4a;
+    color: #000;
+}
+
+/* ========================================
+   AGENT PROCESSING VIEW (NEW)
+   ======================================== */
+
+.agent-processing-view {
+    padding: 40px;
+}
+
+.processing-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 40px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.agents-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.agent-card {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.agent-card.processing {
+    border-color: #4a9d5f;
+    box-shadow: 0 0 20px rgba(74, 157, 95, 0.3);
+}
+
+.agent-card.completed {
+    border-color: #4a9d5f;
+}
+
+.agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #333;
+}
+
+.agent-header h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #fff;
+    text-transform: lowercase;
+}
+
+.agent-status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+}
+
+.agent-status.processing {
+    background-color: #1a3a1f;
+    border-color: #4a9d5f;
+    color: #4a9d5f;
+}
+
+.agent-status.completed {
+    background-color: #1a3a1f;
+    border-color: #4a9d5f;
+    color: #4a9d5f;
+}
+
+.agent-tasks {
+    list-style: none;
+}
+
+.agent-tasks li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #222;
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.agent-tasks li:last-child {
+    border-bottom: none;
+}
+
+.task-status {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.agent-tasks li.completed {
+    color: #4a9d5f;
+}
+
+.agent-tasks li.failed {
+    color: #c74a4a;
+}
+
+.progress-summary {
+    text-align: center;
+    padding: 30px;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.progress-summary p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    padding: 12px 40px;
+    background-color: transparent;
+    border: 1px solid #4a9d5f;
+    border-radius: 6px;
+    color: #4a9d5f;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.back-btn:hover {
+    background-color: #4a9d5f;
+    color: #000;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .dashboard-view {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #333;
+    }
+    
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .search-input {
+        width: 100%;
+    }
+
+    .agents-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .action-btn {
+        width: 100%;
+    }
+
+    .theme-toggle {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        left: 20px;
+        font-size: 1.5rem;
+    }
+}
